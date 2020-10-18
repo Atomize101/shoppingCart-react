@@ -25,8 +25,16 @@ function App() {
 
 	const addToCart = (product) => {
 		console.log('adding to cart');
-		setCart([...cart, product]);
+		setCart([...cart, {...product} ]);
 	};
+
+  const removeFromCart = (productToRemove) => {
+    setCart(
+      cart.filter((product) => product !== productToRemove
+      )
+    )
+  }
+  
 
 	const renderCart = () => (
 		<>
@@ -37,7 +45,7 @@ function App() {
 						<h3>{product.name}</h3>
 						<h4>{product.cost}</h4>
 						<img src={product.image} alt={product.name} />
-						<button onClick={() => addToCart(product)}>Add to Cart</button>
+						<button onClick={() => removeFromCart(product)}>Remove</button>
 					</div>
 				))}
 			</div>
@@ -68,6 +76,7 @@ function App() {
 		<div className="App">
 			<header>
 				<button onClick={()=> navigateTo(PAGE_CART)}>Go to Cart ({cart.length})</button>
+        <button onClick={() => navigateTo(PAGE_PRODUCTS)}>View Products</button>
 			</header>
 			{page === PAGE_PRODUCTS && renderProducts()}
 			{page === PAGE_CART && renderCart()}
