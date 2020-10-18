@@ -44,9 +44,20 @@
 }
 
 .products img {
-  width: 25%;
+  width: 50%;
 }
 
 .product {
   padding: 40px;
+}
+
+button {
+  font-size: 20px;
+  padding: 10px;
+}
+
+header {
+  background-color: pink;
+  height: 70px;
+  padding-top: 20px;
 }
