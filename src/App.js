@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const PAGE_PRODUCTs = 'products';
+const PAGE_PRODUCTS = 'products';
 const PAGE_CART = 'cart';
 
 function App() {
 	const [cart, setCart] = useState([]);
-	const [page, setPage] = useState('products');
+	const [page, setPage] = useState(PAGE_PRODUCTS);
 
 	const [products] = useState([
 		{
@@ -65,8 +65,8 @@ function App() {
 			<header>
 				<button>Go to Cart ({cart.length})</button>
 			</header>
-			{page === 'products' && renderProducts()}
-			{page === 'cart' && renderCart()}
+			{page === PAGE_PRODUCTS && renderProducts()}
+			{page === PAGE_CART && renderCart()}
 		</div>
 	);
 }
