@@ -32,7 +32,7 @@ function App() {
 		<>
 			<h1>Cart</h1>
 			<div className="products">
-				{products.map((product, index) => (
+				{cart.map((product, index) => (
 					<div className="product" key={index}>
 						<h3>{product.name}</h3>
 						<h4>{product.cost}</h4>
@@ -43,6 +43,10 @@ function App() {
 			</div>
 		</>
   );
+
+  const navigateTo = (nextPage) => {
+    setPage(nextPage);
+  }
 
 	const renderProducts = () => (
 		<>
@@ -63,7 +67,7 @@ function App() {
 	return (
 		<div className="App">
 			<header>
-				<button>Go to Cart ({cart.length})</button>
+				<button onClick={()=> navigateTo(PAGE_CART)}>Go to Cart ({cart.length})</button>
 			</header>
 			{page === PAGE_PRODUCTS && renderProducts()}
 			{page === PAGE_CART && renderCart()}
